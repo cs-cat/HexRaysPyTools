@@ -41,7 +41,7 @@ class LocalType:
 class StructureGraph:
     # TODO:Enum types display
     def __init__(self, ordinal_list=None):
-        self.ordinal_list = ordinal_list if ordinal_list else range(1, idc.get_ordinal_qty())
+        self.ordinal_list = ordinal_list if ordinal_list else range(1, idc.get_ordinal_limit())
         self.local_types = {}
         self.edges = []
         self.final_edges = []
@@ -105,7 +105,7 @@ class StructureGraph:
         return None
 
     def initialize_nodes(self):
-        for ordinal in range(1, idc.get_ordinal_qty()):
+        for ordinal in range(1, idc.get_ordinal_limit()):
             # if ordinal == 15:
             #     import pydevd
             #     pydevd.settrace("localhost", port=12345, stdoutToServer=True, stderrToServer=True)

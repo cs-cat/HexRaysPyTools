@@ -388,7 +388,7 @@ class VirtualTable(AbstractMember):
 class Member(AbstractMember):
     def __init__(self, offset, tinfo, scanned_variable, origin=0):
         AbstractMember.__init__(self, offset + origin, scanned_variable, origin)
-        self.tinfo = tinfo
+        self.tinfo = tinfo.copy()
         self.name = "field_{0:X}".format(self.offset)
 
     def get_udt_member(self, array_size=0, offset=0):

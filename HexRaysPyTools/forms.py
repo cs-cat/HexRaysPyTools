@@ -32,7 +32,7 @@ class StructureBuilder(idaapi.PluginForm):
         self.parent.setStyleSheet(
             "QTableView {background-color: transparent; selection-background-color: #87bdd8;}"
             "QHeaderView::section {background-color: transparent; border: 0.5px solid;}"
-            "QPushButton {width: 50px; height: 20px;}"
+            "QPushButton {width: 3.125em; height: 1.25em;}"
             # "QPushButton::pressed {background-color: #ccccff}"
         )
         self.parent.resize(400, 600)
@@ -49,7 +49,7 @@ class StructureBuilder(idaapi.PluginForm):
         btn_resolve = QtWidgets.QPushButton("Resolve")
         btn_clear = QtWidgets.QPushButton("Clear")  # Clear button doesn't have shortcut because it can fuck up all work
         btn_recognize = QtWidgets.QPushButton("Recognize Shape")
-        btn_recognize.setStyleSheet("QPushButton {width: 100px; height: 20px;}")
+        btn_recognize.setStyleSheet("QPushButton {width: 6.25em; height: 1.25em;}")
 
         btn_finalize.setShortcut("f")
         btn_disable.setShortcut("d")

@@ -273,7 +273,7 @@ class VirtualTable(AbstractMember):
 
         if ordinal:
             print("[Info] Virtual table " + self.vtable_name + " added to Local Types")
-            return idaapi.import_type(idaapi.cvar.idati, -1, self.vtable_name)
+            return idc.import_type(-1, self.vtable_name)
         else:
             print("[Error] Failed to create virtual table " + self.vtable_name)
             print("*" * 100)
@@ -576,7 +576,7 @@ class TemporaryStructureModel(QtCore.QAbstractTableModel):
                 ordinal = idaapi.idc_set_local_type(-1, cdecl, idaapi.PT_TYP)
             if ordinal:
                 print("[Info] New type {0} was added to Local Types".format(structure_name))
-                tid = idaapi.import_type(idaapi.cvar.idati, -1, structure_name)
+                tid = idc.import_type(-1, structure_name)
                 if tid:
                     tinfo = idaapi.create_typedef(structure_name)
                     ptr_tinfo = idaapi.tinfo_t()

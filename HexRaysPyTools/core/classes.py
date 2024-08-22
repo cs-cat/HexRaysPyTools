@@ -1,6 +1,6 @@
 from PyQt5 import QtCore, QtGui
 
-import idaapi
+import idaapi,idc
 
 import HexRaysPyTools.forms
 from . import helper
@@ -221,7 +221,7 @@ class VirtualTable(object):
     def create(tinfo, class_):
         ordinal = idaapi.get_type_ordinal(idaapi.cvar.idati, tinfo.dstr())
         if ordinal == 0:
-            if idaapi.import_type(idaapi.cvar.idati, -1, tinfo.dstr(), 0) == idaapi.BADNODE:
+            if idc.import_type(-1, tinfo.dstr()) == idaapi.BADNODE:
                 raise ImportError("unable to import type to idb ({})".format(tinfo.dstr()))
             ordinal = idaapi.get_type_ordinal(idaapi.cvar.idati, tinfo.dstr())
 
